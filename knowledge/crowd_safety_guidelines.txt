@@ -1,0 +1,13 @@
+# CROWDSHIELD AI - STANDARD OPERATING PROCEDURES (SOP)
+
+[Zone-1A, Zone-1B, Zone-1C: Entry Gates]
+- If crowd pressure exceeds 4.0: Temporarily halt incoming footfall at the main entrance. Deploy 2 security guards with megaphones to organize queues.
+- If surge detected: Open overflow holding area 1 to distribute incoming mass.
+
+[Zone-2A, Zone-2B, Zone-2C: Central Concourse / Main Hall]
+- If crowd pressure exceeds 5.0 (CROWDING): Play automated audio announcements asking people to keep moving. Do not allow anyone to sit on the floor.
+- If pressure exceeds 6.0 (DANGER/CRITICAL PANIC): Immediately open Emergency Exits Alpha and Beta. Form a human chain with the Quick Response Team (QRT) to divert crowd flow towards the East Wing. Halt all escalators to prevent pile-ups.
+
+[Zone-3A, Zone-3B, Zone-3C: Exit Corridors]
+- If density is high and velocity drops below 0.2: Check for physical bottlenecks (e.g., locked gates, fallen luggage). Dispatch a clearance team immediately.
+- General rule for exit bottlenecks: Redirect 50% of the crowd to alternative exits using LED signboards.
