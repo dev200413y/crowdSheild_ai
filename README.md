@@ -1,52 +1,29 @@
-# CrowdShield AI 🛡️
+# 🛡️ CrowdShield AI: Edge-AI Predictive Crowd Risk Intelligence
 
-CrowdShield AI is an intelligent crowd monitoring and safety management system. It leverages computer vision (YOLOv8) to detect and analyze crowd density in real-time, providing actionable safety guidelines and evacuation protocols based on a custom advisory engine.
+CrowdShield AI is an enterprise-grade, real-time crowd monitoring and stampede prevention system. It combines Computer Vision (YOLOv8) for dynamic crowd density analysis with a **RAG-powered Edge AI Copilot (Llama-3)** to instantly generate standard operating procedures (SOPs) and evacuation protocols locally, ensuring zero-latency and maximum data privacy.
 
-## Features
-- **Real-Time Crowd Detection:** Utilizes YOLOv8 for accurate crowd counting and density estimation.
-- **Interactive Dashboard:** Built with Streamlit for live monitoring and data visualization.
-- **Automated Advisory Engine:** Generates real-time alerts and guidelines based on predefined disaster protocols and evacuation rules.
-- **Data Logging:** Tracks crowd metrics over time in `crowd_log.csv`.
+## 🚀 Key Features
+- **Real-Time Crowd Vision & Heatmaps:** Utilizes YOLOv8n to accurately detect individuals frame-by-frame, overlaid with OpenCV Gaussian-blur heatmaps to visually isolate high-density danger zones.
+- **RAG-Powered Security Copilot:** Features an integrated chatbot powered by a local Large Language Model (Llama-3). It uses FAISS Vector Database to retrieve official disaster protocols and injects live camera metrics (Context-Aware Prompting) to give precise, rule-based answers.
+- **Interactive Command Center:** A full-stack Streamlit dashboard providing live video feeds, historical crowd density line charts, and dynamic visual/textual alerts when critical thresholds are breached.
+- **100% Offline Edge Deployment:** Runs entirely on-premise without relying on external APIs (like OpenAI), ensuring continuous security monitoring even without internet access.
 
-## Project Structure
-- `main.py`: Core script for running the crowd detection model.
-- `dashboard.py`: Streamlit application for the interactive user interface.
-- `advisory_engine.py`: Logic for generating safety advisories using AI.
-- `database.py`: Database operations and interaction handling.
-- `knowledge/`: Contains text rules and protocols (`crowd_safety_guidelines.txt`, `disaster_protocols.txt`, `evacuation_rules.txt`).
+## 🛠️ Tech Stack
+- **Computer Vision:** Ultralytics YOLOv8, OpenCV, NumPy
+- **Generative AI & LLMs:** Llama-3 (8B) via Ollama
+- **RAG Pipeline:** LangChain, FAISS (Vector DB), HuggingFace Embeddings (`all-MiniLM-L6-v2`)
+- **Frontend & Data Visualization:** Streamlit, Pandas
+
+## 📂 Project Structure
+- `app.py` / `dashboard.py`: The main Streamlit application featuring the Live Command Center and Sidebar Copilot.
+- `camera_simulator.py` / `main.py`: Backend scripts for testing raw detection and simulating data.
+- `knowledge/`: Contains official text rules and protocols used by the RAG Vector DB (`crowd_safety_guidelines.txt`, `evacuation_rules.txt`).
 - `requirements.txt`: Python package dependencies.
+- `crowd.mp4`: Sample CCTV footage for testing the vision pipeline.
 
-## Installation
+## ⚙️ Installation & Setup
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/dev200413y/crowdSheild_ai.git
+   git clone [https://github.com/dev200413y/crowdshield_ai.git](https://github.com/dev200413y/crowdshield_ai.git)
    cd CrowdShield_AI
-   ```
-
-2. **Create and activate a virtual environment (Recommended):**
-   ```bash
-   python -m venv venv
-   venv\Scripts\activate  # On Windows
-   ```
-
-3. **Install the dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Usage
-
-**1. To run the main backend/detection script:**
-```bash
-python main.py
-```
-
-**2. To launch the interactive dashboard:**
-```bash
-streamlit run dashboard.py
-```
-
-## Setup Notes
-- Make sure you have a `crowd.mp4` video file in the root directory if testing with recorded video.
-- The `yolov8n.pt` model weights will be used automatically by the Ultralytics library.
