@@ -1,6 +1,3 @@
-# ==========================================
-# CrowdShield AI - Spatial Grid Engine (Phase 2)
-# ==========================================
 
 import cv2
 import torch
@@ -18,9 +15,7 @@ FRAME_WIDTH = 640
 FRAME_HEIGHT = 480
 CONF_THRESHOLD = 0.35
 ALPHA = 0.3
-
-# --- NAYA LOGIC: GRID SYSTEM ---
-# Hum screen ko 3 rows aur 4 columns (Total 12 cells) mein baat rahe hain.
+#new
 GRID_ROWS = 3
 GRID_COLS = 4
 CELL_W = FRAME_WIDTH // GRID_COLS
@@ -101,7 +96,7 @@ while True:
                 cx = (x1 + x2) // 2
                 cy = (y1 + y2) // 2
 
-                # --- NAYA LOGIC: Person kis Grid Cell mein hai? ---
+                #  Person kis Grid Cell mein hai?
                 # Example: Agar cx 200 hai aur CELL_W 160 hai, toh col = 1 aayega
                 col = min(cx // CELL_W, GRID_COLS - 1)
                 row = min(cy // CELL_H, GRID_ROWS - 1)
