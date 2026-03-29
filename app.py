@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 from ultralytics import YOLO
 import time
+import os
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -13,29 +14,45 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 
+KNOWLEDGE_DIR = os.path.join(os.path.dirname(__file__), "knowledge")
+
 # ---------------------------------------------------------
 # 1. INITIALIZE RAG KNOWLEDGE BASE (Vector DB)
 # ---------------------------------------------------------
+def _load_knowledge_chunks() -> list[str]:
+    """Load and chunk all .txt files from the knowledge/ directory."""
+    chunks: list[str] = []
+    for fname in sorted(os.listdir(KNOWLEDGE_DIR)):
+        if fname.endswith(".txt"):
+            fpath = os.path.join(KNOWLEDGE_DIR, fname)
+            with open(fpath, encoding="utf-8") as f:
+                content = f.read()
+            # Split on blank lines for paragraph-level chunks
+            file_chunks = [c.strip() for c in content.split("\n\n") if c.strip()]
+            chunks.extend(file_chunks)
+    return chunks
+
 @st.cache_resource
 def setup_rag():
     print("⏳ Loading Knowledge Base & Embeddings...")
-    # Ye teri Official PDF ya Rulebook ka text hai (Mock Data)
-    sop_rules = [
-        "Escalator Rules: If crowd exceeds 500 near escalators, immediately halt the escalators and redirect traffic to stairs.",
-        "Exit Gate Protocol: If exit gates reach critical capacity, open emergency exits Alpha and Beta immediately.",
-        "Stampede Prevention: Deploy Quick Response Team (QRT) in a human chain formation to divide the crowd.",
-        "Evacuation Communication: Use public address systems to calmly guide people. Do not use loud panic alarms."
-    ]
-    
-    # Text ko documents mein convert kiya
-    docs = [Document(page_content=rule) for rule in sop_rules]
-    
-    # Wahi tera purana aur fast embedding model
+    knowledge_chunks = _load_knowledge_chunks()
+    if not knowledge_chunks:
+        # Minimal fallback so the app still starts
+        knowledge_chunks = [
+            "Escalator Rules: If crowd exceeds 500 near escalators, immediately halt the escalators and redirect traffic to stairs.",
+            "Exit Gate Protocol: If exit gates reach critical capacity, open emergency exits Alpha and Beta immediately.",
+            "Stampede Prevention: Deploy Quick Response Team (QRT) in a human chain formation to divide the crowd.",
+            "Evacuation Communication: Use public address systems to calmly guide people. Do not use loud panic alarms."
+        ]
+
+    # Convert to LangChain Documents
+    docs = [Document(page_content=chunk) for chunk in knowledge_chunks]
+
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    
-    # FAISS Vector Database banaya
+
+    # FAISS Vector Database
     vector_db = FAISS.from_documents(docs, embeddings)
-    print("✅ RAG Vector DB Ready!")
+    print(f"✅ RAG Vector DB Ready! ({len(docs)} knowledge chunks loaded)")
     return vector_db
 
 vector_db = setup_rag()

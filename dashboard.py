@@ -10,7 +10,7 @@ st.title("🚨 CrowdShield AI - Monitoring Dashboard")
 # Refresh every 1.5 seconds for real-time feel
 st_autorefresh(interval=1500, key="data_refresh")
 
-video_path = r"D:\CrowdShield_AI\crowd.mp4"
+video_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "crowd.mp4")
 
 # ---------- DATA LOADER ----------
 def load_data():
@@ -137,3 +137,42 @@ if not df.empty and "pressure" in df.columns:
     
     if not clean_pressure.empty:
         st.line_chart(clean_pressure.tail(100))
+
+# ==========================================
+# 🤖 AGENT PANEL: Incident Log & Agent Logs
+# ==========================================
+st.markdown("---")
+st.subheader("🤖 Autonomous Agent Monitor")
+
+try:
+    from database import get_recent_incidents, get_recent_agent_logs
+
+    inc_col, log_col = st.columns(2)
+
+    with inc_col:
+        st.markdown("#### 🚨 Recent Incidents (logged by agent)")
+        incidents = get_recent_incidents(limit=10)
+        if incidents:
+            inc_df = pd.DataFrame(incidents)
+            display_cols = [c for c in ["timestamp", "zone", "people_count", "pressure", "risk_label", "action_taken"] if c in inc_df.columns]
+            st.dataframe(inc_df[display_cols], use_container_width=True)
+            if st.checkbox("Show AI Plans", key="show_plans"):
+                n_plans = st.slider("Number of plans to display", min_value=1, max_value=len(incidents), value=min(3, len(incidents)), key="n_plans")
+                for row in incidents[:n_plans]:
+                    if row.get("ai_plan"):
+                        st.markdown(f"**{row['zone']} ({row['risk_label']}):** {row['ai_plan']}")
+        else:
+            st.info("No incidents logged yet. Start the agent with: `python agent.py`")
+
+    with log_col:
+        st.markdown("#### 📋 Agent Decision Log")
+        agent_logs = get_recent_agent_logs(limit=15)
+        if agent_logs:
+            log_df = pd.DataFrame(agent_logs)
+            display_cols = [c for c in ["timestamp", "event_type", "zone", "details"] if c in log_df.columns]
+            st.dataframe(log_df[display_cols], use_container_width=True)
+        else:
+            st.info("Agent has not logged any decisions yet.")
+
+except ImportError:
+    st.warning("⚠️ database.py not available — agent panel disabled.")

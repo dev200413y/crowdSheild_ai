@@ -1,0 +1,35 @@
+# CROWDSHIELD AI - EVACUATION RULES & PROCEDURES
+
+[GENERAL EVACUATION PRINCIPLES]
+- Sound the evacuation alarm only when crowd pressure exceeds 7.0 or when a physical hazard (fire, structural failure) is confirmed.
+- Never announce "fire" or "bomb" over the PA; use calm, neutral language: "Please proceed to the nearest exit in an orderly manner."
+- Assign one marshal per 50 people. Marshals must wear high-visibility vests.
+- Disable escalators and travelators immediately during evacuation to prevent pile-ups.
+- Keep emergency exit corridors clear at all times; minimum clearance width is 2 metres.
+
+[PHASED EVACUATION PROTOCOL]
+Phase 1 (Pressure 5.0–6.0 – CROWDING):
+  - Activate LED signboards pointing to least-congested exits.
+  - Reduce incoming footfall by 50% at main entrances.
+  - Deploy marshals to Zone-2B and Zone-3 corridors.
+
+Phase 2 (Pressure 6.0–7.0 – DANGER):
+  - Open all emergency exits Alpha, Beta, and Gamma.
+  - Redirect crowd towards East Wing overflow area.
+  - QRT (Quick Response Team) forms human-chain barriers to control flow direction.
+  - Disable all ticketing and entry gates.
+
+Phase 3 (Pressure > 7.0 – CRITICAL / STAMPEDE IMMINENT):
+  - Full evacuation: all personnel guide crowd to pre-designated muster points.
+  - Call emergency services (Police, Ambulance, Fire Brigade) immediately.
+  - Incident Commander takes command from the Operations Control Room.
+  - After evacuation, conduct headcount at each muster point every 5 minutes.
+
+[SPECIAL CASES]
+- Mobility-impaired visitors: designated accessible evacuation routes on Ground Floor only; marshals must assist.
+- Children separated from guardians: escort to the Child Safety Desk at Main Entrance; do not leave unattended.
+- Medical emergencies: clear a 3-metre radius around the casualty; call on-site paramedics first, ambulance second.
+
+[POST-EVACUATION]
+- Do not allow re-entry until structural and safety checks are completed by authorised personnel.
+- File an incident report within 2 hours of the event using the CrowdShield AI incident log.

@@ -13,7 +13,7 @@ import os
 print("=== CrowdShield AI - Spatial Grid Engine ===")
 
 # ---------------- CONFIG ----------------
-VIDEO_PATH = r"D:\CrowdShield_AI\crowd.mp4"
+VIDEO_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "crowd.mp4")
 FRAME_WIDTH = 640
 FRAME_HEIGHT = 480
 CONF_THRESHOLD = 0.35
