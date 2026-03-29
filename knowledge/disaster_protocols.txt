@@ -1,0 +1,55 @@
+# CROWDSHIELD AI - DISASTER RESPONSE PROTOCOLS
+
+[PROTOCOL DR-01: STAMPEDE PREVENTION]
+Trigger: Crowd pressure > 6.0 in any single zone for more than 30 seconds.
+Actions:
+  1. QRT deploys in a human-chain formation at the choke point.
+  2. PA system plays: "Please stop and wait calmly. Move slowly to your left. Assistance is on the way."
+  3. Security control room activates CCTV tracking on affected zone.
+  4. Route additional security personnel from standby positions within 2 minutes.
+  5. If pressure does not drop within 3 minutes, escalate to Phase 3 evacuation.
+
+[PROTOCOL DR-02: SURGE / RAPID INFLOW]
+Trigger: Crowd count increases by > 30% in under 60 seconds in any zone.
+Actions:
+  1. Close secondary entry gates immediately.
+  2. Implement single-file queuing at primary entry with crowd meters.
+  3. Alert Operations Control Room and request QRT standby.
+  4. Monitor optical flow velocity; if velocity drops below 0.2 m/s, trigger DR-01.
+
+[PROTOCOL DR-03: CHOKE POINT / BOTTLENECK]
+Trigger: High density (> 5 persons per sq metre) combined with low velocity (< 0.15 m/s).
+Actions:
+  1. Dispatch a clearance team to identify and remove physical obstructions.
+  2. Redirect at least 50% of crowd to alternative exits using dynamic LED signs.
+  3. Halt all incoming traffic to affected corridor.
+  4. Maintain radio contact with clearance team every 60 seconds.
+
+[PROTOCOL DR-04: AUDIO ALARM / PANIC DETECTION]
+Trigger: Ambient audio level exceeds threshold AND crowd pressure > 5.0.
+Actions:
+  1. Do NOT activate sirens (amplifies panic). Use calm PA voice only.
+  2. Increase lighting in affected area by 20% to reduce disorientation.
+  3. Deploy marshals in high-visibility gear to act as visual anchors.
+  4. Activate CrowdShield AI advisory copilot for real-time guidance.
+
+[PROTOCOL DR-05: ESCALATOR / INFRASTRUCTURE FAILURE]
+Trigger: Any escalator or structural failure reported or detected.
+Actions:
+  1. Stop all escalators immediately via the master control switch.
+  2. Post marshals at top and bottom of each disabled escalator.
+  3. Redirect traffic to stairways; increase capacity by removing temporary barriers.
+  4. Notify maintenance team and log the incident in CrowdShield AI.
+
+[COMMUNICATION HIERARCHY]
+Level 1 – Zone Marshal → Sector Supervisor (< 1 min)
+Level 2 – Sector Supervisor → Operations Control Room (< 2 min)
+Level 3 – Operations Control Room → Incident Commander (< 3 min)
+Level 4 – Incident Commander → Emergency Services (immediate if life-threatening)
+
+[KEY CONTACTS]
+- Operations Control Room: Ext. 100
+- QRT Leader: Ext. 101
+- On-site Paramedic: Ext. 102
+- Facility Manager: Ext. 103
+- Police Liaison Officer: Ext. 104
